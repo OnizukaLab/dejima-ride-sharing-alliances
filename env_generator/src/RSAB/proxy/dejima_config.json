@@ -1,0 +1,28 @@
+{
+  "dejima_table": {
+    "a1": [
+        "alliance1",
+        "provider1"
+    ],
+    "b1": [
+        "alliance1",
+        "provider2"
+    ]
+    },
+    "base_table": {
+        "alliance1": [
+            "mt"
+        ],
+        "provider1": [
+            "bt"
+        ],
+        "provider2": [
+            "bt"
+        ]
+    },
+    "peer_address": {
+        "alliance1": "alliance1-proxy:8000",
+        "provider1": "provider1-proxy:8000",
+        "provider2": "provider2-proxy:8000"
+    }
+}

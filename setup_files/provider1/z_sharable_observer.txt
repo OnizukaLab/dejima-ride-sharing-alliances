@@ -1,0 +1,45 @@
+CREATE OR REPLACE FUNCTION public.bt_run_shell(text) RETURNS text AS $$
+#!/bin/sh
+
+result=$(curl -s -X POST -H "Content-Type: application/json" $DEJIMA_EXECUTION_MYSELF -d "$1")
+if  [ "$result" = "true" ];  then
+    echo "true"
+else 
+    echo $result
+fi
+$$ LANGUAGE plsh;
+
+
+CREATE OR REPLACE FUNCTION public.sharable_observer()
+RETURNS trigger
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    deletion_data text;
+    insertion_data text;
+    json_data text;
+    result text;
+BEGIN
+    RAISE LOG 'A change of "sharable" column detected1';
+    -- do something
+    insertion_data := (SELECT (array_to_json(array_agg(NEW)))::text);
+    IF insertion_data IS NOT DISTINCT FROM NULL THEN
+        insertion_data := '[]';
+    END IF;
+    deletion_data := (SELECT (array_to_json(array_agg(OLD)))::text);
+    IF deletion_data IS NOT DISTINCT FROM NULL THEN
+        deletion_data := '[]';
+    END IF;
+    
+    json_data := concat('{"insertions": ' , insertion_data , ', ' , '"deletions": ' , deletion_data , '}');
+    result := public.bt_run_shell(json_data);
+    RAISE LOG 'A change of "sharable" column detected';
+    RETURN NEW;
+END;
+$$;
+
+
+CREATE TRIGGER z_sharable_observer
+    AFTER UPDATE
+    ON public.bt
+    FOR EACH ROW EXECUTE PROCEDURE public.sharable_observer();

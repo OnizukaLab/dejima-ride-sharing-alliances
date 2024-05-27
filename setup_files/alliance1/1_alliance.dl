@@ -1,0 +1,7 @@
+% schema:
+source mt('V':int, 'L':int, 'D':int, 'R':int, 'P':string, 'U':string, 'LINEAGE': string).
+view a1('V':int, 'L':int, 'D':int, 'R':int, 'LINEAGE': string).
+
+% rules for update strategy:
+-mt(V,L,D,R,P,U,LINEAGE) :- mt(V,L,D,R,P,U,LINEAGE), NOT a1(V,L,D,R,LINEAGE), P='A'.
++mt(V,L,D,R,P,U,LINEAGE) :- NOT mt(V,L,D,R,P,_,LINEAGE), a1(V,L,D,R,LINEAGE), P='A', U='true'.

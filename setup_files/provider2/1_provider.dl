@@ -1,0 +1,7 @@
+% schema:
+source bt('V':int, 'L':int, 'D':int, 'R':int, 'U':string, 'LINEAGE': string).
+view dnum('V':int, 'L':int, 'D':int, 'R':int, 'LINEAGE': string).
+
+% rules for update strategy:
+-bt(V,L,D,R,U,LINEAGE) :- bt(V,L,D,R,U,LINEAGE), NOT dnum(V,L,D,R,LINEAGE).
++bt(V,L,D,R,U,LINEAGE) :- NOT bt(V,L,D,R,_,LINEAGE), dnum(V,L,D,R,LINEAGE), U='true'.

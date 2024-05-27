@@ -1,0 +1,10 @@
+% schema:
+source mt('V':int, 'L':int, 'D':int, 'R':int, 'P':int, 'LINEAGE':string).
+view d2_7('V':int, 'L':int, 'D':int, 'R':int, 'LINEAGE':string).
+
+% view definition
+d2_7(V,L,D,R,LINEAGE) :- mt(V,L,D,R,P,LINEAGE), P=7.
+
+% rules for update strategy:
+-mt(V,L,D,R,P,LINEAGE) :- mt(V,L,D,R,P,LINEAGE), NOT d2_7(V,L,D,R,LINEAGE), P=7.
++mt(V,L,D,R,P,LINEAGE) :- NOT mt(V,L,D,R,P,LINEAGE), d2_7(V,L,D,R,LINEAGE), P=7.

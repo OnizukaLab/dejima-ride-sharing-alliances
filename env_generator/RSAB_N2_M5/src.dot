@@ -1,0 +1,23 @@
+graph {
+	graph [rankdir=BT]
+	A0
+	A1
+	A2
+	A0 -- A1 [color="#117733" style=bold]
+	A0 -- A2 [color="#DDDDDD" style=bold]
+	P1
+	P1 -- A2 [color="#999933" style=bold]
+	P1 -- A1 [color="#DDDDDD" style=bold]
+	P2
+	P2 -- A2 [color="#44AA99" style=bold]
+	P2 -- A1 [color="#DDDDDD" style=bold]
+	P3
+	P3 -- A2 [color="#999933" style=bold]
+	P3 -- A1 [color="#88CCEE" style=bold]
+	P4
+	P4 -- A2 [color="#DDDDDD" style=bold]
+	P4 -- A1 [color="#117733" style=bold]
+	P5
+	P5 -- A1 [color="#882255" style=bold]
+	P5 -- A2 [color="#CC6677" style=bold]
+}

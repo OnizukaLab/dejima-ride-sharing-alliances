@@ -1,0 +1,110 @@
+{
+  "dejima_table": {
+    "d0_1": [
+      "alliance0",
+      "alliance1"
+    ],
+    "d0_2": [
+      "alliance0",
+      "alliance2"
+    ],
+    "d2_1": [
+      "provider1",
+      "alliance2"
+    ],
+    "d1_1": [
+      "provider1",
+      "alliance1"
+    ],
+    "d2_2": [
+      "provider2",
+      "alliance2"
+    ],
+    "d1_2": [
+      "provider2",
+      "alliance1"
+    ],
+    "d2_3": [
+      "provider3",
+      "alliance2"
+    ],
+    "d1_3": [
+      "provider3",
+      "alliance1"
+    ],
+    "d2_4": [
+      "provider4",
+      "alliance2"
+    ],
+    "d1_4": [
+      "provider4",
+      "alliance1"
+    ],
+    "d1_5": [
+      "provider5",
+      "alliance1"
+    ],
+    "d2_5": [
+      "provider5",
+      "alliance2"
+    ]
+  },
+  "base_table": {
+    "alliance0": [
+      "mt"
+    ],
+    "alliance1": [
+      "mt"
+    ],
+    "alliance2": [
+      "mt"
+    ],
+    "provider1": [
+      "bt"
+    ],
+    "provider2": [
+      "bt"
+    ],
+    "provider3": [
+      "bt"
+    ],
+    "provider4": [
+      "bt"
+    ],
+    "provider5": [
+      "bt"
+    ]
+  },
+  "alliance_list": {
+    "provider1": [
+      "AL2",
+      "AL1"
+    ],
+    "provider2": [
+      "AL2",
+      "AL1"
+    ],
+    "provider3": [
+      "AL2",
+      "AL1"
+    ],
+    "provider4": [
+      "AL2",
+      "AL1"
+    ],
+    "provider5": [
+      "AL1",
+      "AL2"
+    ]
+  },
+  "peer_address": {
+    "alliance0": "alliance0-proxy:8000",
+    "alliance1": "alliance1-proxy:8000",
+    "alliance2": "alliance2-proxy:8000",
+    "provider1": "provider1-proxy:8000",
+    "provider2": "provider2-proxy:8000",
+    "provider3": "provider3-proxy:8000",
+    "provider4": "provider4-proxy:8000",
+    "provider5": "provider5-proxy:8000"
+  }
+}
